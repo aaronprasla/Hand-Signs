@@ -33,3 +33,16 @@ function talk() {
 	var utterThis = new SpeechSynthesisUtterance(speak_data_1 + speak_data_2);
 	synth.speak(utterThis);
 }
+
+function identify() {
+	img = document.getElementById('captured_image');
+	classifier.classify(img, gotResult);
+}
+
+function gotResult(error, results) {
+	if(error) {
+		console.error('error');
+	} else {
+		console.log(results);
+	}
+}
